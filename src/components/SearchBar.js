@@ -3,23 +3,28 @@ import Table from "./Table";
 
 const SearchBar = ({ data }) => {
   const [searchValue, setSearchValue] = useState("");
-  const columns = ["ID", "Name"];
+  const columns = ["ID", "First Name","Last Name","Email"];
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchValue(value);
   };
 
-  const filteredData = data.filter((ele) =>
-    ele.name.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  const filteredData = Array.isArray(data?.users)
+  ? data.users.filter((user) =>
+      user.firstName.toLowerCase().includes(searchValue.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(searchValue.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchValue.toLowerCase())
+    )
+  : [];
 
-  const rowRender = (rowData) => (
-    <>
-      <td>{rowData.id}</td>
-      <td>{rowData.name}</td>
-      <td>{rowData.email}</td>
-    </>
-  );
+const rowRender = (user) => (
+  <>
+    <td>{user.id}</td>
+    <td>{user.firstName}</td>
+    <td>{user.lastName}</td>
+    <td>{user.email}</td>
+  </>
+);
   return (
     
     <div>

@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchBar";
 import useFetch from "./utils/useFetch";
 
 function App() {
-  const apiUrl = "https://jsonplaceholder.typicode.com/users";
+  const apiUrl = "https://dummyjson.com/users";
   const { data, loading, error } = useFetch({ apiUrl });
   return (
     <div className="App">
