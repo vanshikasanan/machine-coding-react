@@ -24,12 +24,13 @@ export const AutoComplete = ({options}) => {
         value={inputValue}
         placeholder="Search..."
         onChange={handleInputChange}
+        list="suggestions"
       />
-      <ul>
+      <datalist id="suggestions">
         {filteredSuggestions.map((ele, index) => (
-          <li key={index}>{ele}</li>
+          <option key={index} value={ele} />
         ))}
-      </ul>
+      </datalist>
     </div>
   );
 };
