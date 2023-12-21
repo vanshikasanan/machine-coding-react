@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ columns, data }) => {
+const Table = ({ columns, data, rowRender }) => {
   return (
     <div>
       <table>
@@ -13,10 +13,7 @@ const Table = ({ columns, data }) => {
         </thead>
         <tbody>
           {data.map((ele, index) => (
-            <tr key={index}>
-              <td>{ele.id}</td>
-              <td>{ele.name}</td>
-            </tr>
+            <tr key={index}>{rowRender(ele)}</tr>
           ))}
         </tbody>
       </table>

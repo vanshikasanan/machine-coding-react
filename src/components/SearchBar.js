@@ -13,6 +13,13 @@ const SearchBar = ({ data }) => {
     ele.name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
+  const rowRender = (rowData) => (
+    <>
+      <td>{rowData.id}</td>
+      <td>{rowData.name}</td>
+      <td>{rowData.email}</td>
+    </>
+  );
   return (
     
     <div>
@@ -22,7 +29,7 @@ const SearchBar = ({ data }) => {
         value={searchValue}
         onChange={handleSearch}
       />
-       <Table columns={columns} data={filteredData} />
+       <Table columns={columns} data={filteredData} rowRender={rowRender}/>
     </div>
   );
 };
