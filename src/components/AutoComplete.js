@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-export const AutoComplete = () => {
+export const AutoComplete = ({options}) => {
   const [inputValue, setInputValue] = useState("");
-  const [suggestions] = useState([
-    "Apple",
-    "Orange",
-    "Banana",
-    "Grapes",
-  ]);
+
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
   const handleInputChange = (e) => {
@@ -16,11 +11,11 @@ export const AutoComplete = () => {
   };
 
   useEffect(() => {
-    const filtered = suggestions.filter((ele) =>
+    const filtered = options.filter((ele) =>
       ele.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredSuggestions(filtered);
-  }, [inputValue, suggestions]);
+  }, [inputValue, options]);
 
   return (
     <div>
