@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       {loading && <p>Loading...</p>}
-      <AutoComplete options={data.map((user) => user?.name)} />
+      {/* <AutoComplete options={data.map((user) => user?.name)} /> */}
       <SearchBar data={data} />
     </div>
   );

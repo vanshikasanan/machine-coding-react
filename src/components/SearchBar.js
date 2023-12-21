@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import Table from "./Table";
 
 const SearchBar = ({ data }) => {
   const [searchValue, setSearchValue] = useState("");
-
+  const columns = ["ID", "Name"];
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchValue(value);
@@ -13,6 +14,7 @@ const SearchBar = ({ data }) => {
   );
 
   return (
+    
     <div>
       <input
         type="search"
@@ -20,22 +22,7 @@ const SearchBar = ({ data }) => {
         value={searchValue}
         onChange={handleSearch}
       />
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map((ele, index) => (
-            <tr key={index}>
-              <td>{ele.id}</td>
-              <td>{ele.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+       <Table columns={columns} data={filteredData} />
     </div>
   );
 };
