@@ -1,5 +1,6 @@
 import { AutoComplete } from "./components/AutoComplete";
 import SearchBar from "./components/SearchBar";
+import TodoList from "./components/TodoList";
 import useFetch from "./utils/useFetch";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <div className="App">
       {loading && <p>Loading...</p>}
       {/* <AutoComplete options={data.map((user) => user?.name)} /> */}
-      <SearchBar data={data} />
+      {/* <SearchBar data={data} /> */}
+      <TodoList />
     </div>
   );
 }
